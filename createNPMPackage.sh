@@ -23,7 +23,7 @@ do
     cd android
     ./gradlew clean
 
-    CLIENT_SIDE_BUILD="False" JS_RUNTIME=${engine} REANIMATED_PACKAGE_BUILD="1" ./gradlew :assembleDebug --no-build-cache --rerun-tasks
+    CLIENT_SIDE_BUILD="False" JS_RUNTIME=${engine} REANIMATED_PACKAGE_BUILD="1" ./gradlew :assembleRelease --no-build-cache --rerun-tasks
 
     cd $ROOT
 
