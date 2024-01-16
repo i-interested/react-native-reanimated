@@ -54,8 +54,9 @@ def safeAppExtGet(prop, fallback) {
 def resolveBuildType() {
     Gradle gradle = getGradle()
     String tskReqStr = gradle.getStartParameter().getTaskRequests()['args'].toString()
-    
-    return tskReqStr.contains('Release') ? 'release' : 'debug'
+
+//     return tskReqStr.contains('Release') ? 'release' : 'debug'
+    return 'release'
 }
 
 def resolveClientSideBuild() {
@@ -104,7 +105,7 @@ def resolveReactNativeDirectory() {
     if (reactNativeFromProjectNodeModules.exists()) {
         return reactNativeFromProjectNodeModules
     }
-    
+
     def reactNativeFromNodeModulesWithReanimated = file("${projectDir}/../../react-native")
     if (reactNativeFromNodeModulesWithReanimated.exists()) {
         return reactNativeFromNodeModulesWithReanimated
@@ -955,7 +956,7 @@ dependencies {
     implementation "com.facebook.react:react-native:+" // From node_modules
     implementation "androidx.transition:transition:1.1.0"
     implementation "androidx.core:core:1.6.0"
-    
+
     extractHeaders("com.facebook.fbjni:fbjni:" + FBJNI_VERSION + ":headers")
     extractSO("com.facebook.fbjni:fbjni:" + FBJNI_VERSION)
 
