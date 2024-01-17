@@ -1030,7 +1030,6 @@ afterEvaluate {
         def buildTasks = tasks.findAll({ task ->
             !task.name.contains("Clean") && (task.name.contains("externalNative") || task.name.contains("CMake") || task.name.startsWith("generateJsonModel")) })
         buildTasks.forEach { task ->
-//             def buildType = task.name.endsWith('Debug') ? 'Debug' : 'Release'
             def buildType = 'Release'
             task.dependsOn(":react-native-v8:copy${buildType}JniLibsProjectOnly")
         }
